@@ -1,3 +1,6 @@
 # Password123-
 CS 326 Final Project
-Password Hasher
+
+Team Name: Password123!
+
+
