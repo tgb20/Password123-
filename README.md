@@ -2,7 +2,9 @@
 
 ## Team Members
 [Jacob Bashista](https://github.com/lcousins/Password123-/blob/master/team/JACOB_BASHISTA.md)
+
 [Lucy Cousins](https://github.com/lcousins/Password123-/blob/master/team/LUCY_COUSINS.md)
+
 [Andrew Yetts](https://github.com/lcousins/Password123-/blob/master/team/ANDREW_YETTS.md)
 
 ## Project Overview
