@@ -1,4 +1,4 @@
-##Lucy Cousins
+## Lucy Cousins
 
 
 My name is Lucy and I am familiar with HTML, CSS, and Javascript.  I also have experience with R, Java, and a little bit of Python. I also have experience with GIS (Geographic Information Systems/Science) softwares.
