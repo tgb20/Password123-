@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-let PasswordSchema = new mongoose.Schema({
+let HashedPasswordSchema = new mongoose.Schema({
     hash: String
 })
 
-module.exports = mongoose.model('Password', PasswordSchema);
+module.exports = mongoose.model('HashedPassword', HashedPasswordSchema);
