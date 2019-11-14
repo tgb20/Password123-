@@ -1,7 +1,7 @@
 body{
   font-family:sans-serif;
   font-weight: lighter;
-  background-color: #FDC6BB;
+  background-image: linear-gradient(#FDC6BB,#ff8870);
   color: #C70039;
 }
 #content{
@@ -11,16 +11,19 @@ h1{
   text-shadow: 1px 1px #FDDABB;
   font-weight: lighter;
   text-align: center;
+  font-size: 40px;
 }
 input[type=text], select{
   width: 67%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  padding: 15px 20px;
+  margin: 10px 0;
   display: inline-block;
   border: 2px solid #C70039;
-  border-radius: 10px;
+  border-radius: 15px;
   box-sizing: border-box;
   outline: none;
+  font-size: 18px;
+  background-color: #FFECE7;
 }
 input[type=text]:focus{
   border: 3px solid #C70039;
@@ -29,12 +32,13 @@ input[type=submit]{
   width: 33%;
   background-color: #C70039;
   color: #FDDABB;
-  padding: 14px 20px;
-  margin: 8px 0;
+  padding: 15px 20px;
+  margin: 10px 0;
   border: none;
-  border-radius: 10px;
+  border-radius: 15px;
   cursor: pointer;
   align-content: center;
+  font-size: 18px;
 }
 input[type=submit]:hover{
   border: 3px solid #FDDABB;
