@@ -1,27 +1,37 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html></<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Password123!</title>
     <link rel="stylesheet" href="style.css">
+    <script type = "text/javascript" src="main.js"></script>
+    <script type ="text/javascript" src="libs/p5/p5.min.js"></script>
   </head>
   <body>
+    <header>
+      Insert text here
+    </header>
     <div id = "content">
     <form>
-      <h1>New Password Generator</h1>
+      <div class = "title">
+        <h1>New Password Generator</h1>
+      </div>
+      <div>
+        <p class = "info"> Welcome to Password 123!  This is a web app that allows you to generate a new, safer password from an existing password.  In the input section, insert your current passwod (don't worry, we can't see it) and we will return a more complex password. </p>
+      </div>
       <div class = "inputpwd">
         <input type="text" id = "inputpwd" name="inputpwd" placeholder="Enter Password..." required/><br>
       </div>
       <div class = "buttonHolder">
-        <input type="submit" id = "submit">
-      </div>
-      <div>
-        <ul>
-          
-        </ul>
+        <input type="submit" id = "submit" value="Generate New Password">
       </div>
       </form>
+      <div class = "newpwdlist">
+        <ul>
+          <li>new password 1</li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
