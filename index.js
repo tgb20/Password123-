@@ -5,7 +5,7 @@ const app = express();
 const path = require('path');
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect('mongodb://localhost/password123')
+mongoose.connect('mongodb+srv://public:KZq4PKjfQDE1nKEc@password123-ehxc4.gcp.mongodb.net/test?retryWrites=true&w=majority')
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname+'/public/index.html'));
