@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const passwordHandler = require('../backend-server/handlers/passwordHandler');
 const app = express();
 const path = require('path');
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 mongoose.connect('mongodb://localhost/password123')
 
@@ -14,6 +14,6 @@ app.get('/', (req, res) => {
 app.post('/api/addPassword', passwordHandler.addPassword);
 app.get('/api/checkMatchingPassword', passwordHandler.checkMatchingPassword);
 
-app.listen(port, () => {
-    console.log(`Running on port ${port}`);
+app.listen(PORT, () => {
+    console.log(`Running on port ${PORT}`);
 });
