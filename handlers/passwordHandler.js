@@ -5,6 +5,8 @@ module.exports = {
 
         let hash = req.query.hash;
 
+        console.log(req.query);
+
         let passwordObj = JSON.parse('{"hash": "' + hash + '"}');
 
         HashedPassword.create(passwordObj, (err, password) => {
