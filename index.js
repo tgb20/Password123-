@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const passwordHandler = require('../backend-server/handlers/passwordHandler');
+const passwordHandler = require('./handlers/passwordHandler');
+const wordHandler = require('./handlers/wordHandler');
 const app = express();
 const path = require('path');
 const PORT = process.env.PORT || 3000;
@@ -13,6 +14,7 @@ app.get('/', (req, res) => {
 
 app.post('/api/addPassword', passwordHandler.addPassword);
 app.get('/api/checkMatchingPassword', passwordHandler.checkMatchingPassword);
+app.get('/api/getRandomWords', wordHandler.getRandomWords);
 
 app.listen(PORT, () => {
     console.log(`Running on port ${PORT}`);
