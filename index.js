@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors')
 const passwordHandler = require('./handlers/passwordHandler');
 const wordHandler = require('./handlers/wordHandler');
 const app = express();
@@ -7,6 +8,8 @@ const path = require('path');
 const PORT = process.env.PORT || 3000;
 
 mongoose.connect('mongodb+srv://public:KZq4PKjfQDE1nKEc@password123-ehxc4.gcp.mongodb.net/test?retryWrites=true&w=majority')
+
+app.use(cors());
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname+'/public/index.html'));
