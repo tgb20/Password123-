@@ -18,3 +18,56 @@ Our project will be targeting people who reuse their password often such as olde
 - Password Hashing
 - Authentication (possible if we allow saving password)
 - Server-side (We plan to write our own webserver)
+
+
+# API Endpoints:
+### GET getRandomWords
+
+Returns 5 random words up to 5 characters in length
+
+Example URL: `https://password123cs326.herokuapp.com/api/getRandomWords`
+
+Example Return:
+```
+{
+    "words": [
+        "seat",
+        "pond",
+        "fur",
+        "labor",
+        "work"
+    ]
+}
+```
+
+### POST addPassword
+
+Adds a hash to the database
+
+Example URL: `https://password123cs326.herokuapp.com/api/addPassword?hash=hi`
+
+Example Return:
+```
+{
+    "success": true
+}
+```
+
+
+### POST checkMatchingPassword
+
+Lets you know if the hash has already been stored on the database
+
+Example URL: `https://password123cs326.herokuapp.com/api/checkMatchingPassword?hash=hi`
+
+Example Returns:
+```
+{
+    "unique": true
+}
+```
+```
+{
+    "unique": false
+}
+```
