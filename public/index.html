@@ -5,33 +5,41 @@
     <meta charset="utf-8">
     <title>Password123!</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script type = "text/javascript" src="main.js"></script>
     <script type ="text/javascript" src="libs/p5/p5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <header>
-      Insert text here
+      Password123!
     </header>
-    <div id = "content">
-    <form>
+      <div class = .container-fluid>
       <div class = "title">
-        <h1>New Password Generator</h1>
+          <h1>New Password Generator</h1>
       </div>
+
       <div>
-        <p class = "info"> Welcome to Password 123!  This is a web app that allows you to generate a new, safer password from an existing password.  In the input section, insert your current passwod (don't worry, we can't see it) and we will return a more complex password. </p>
-      </div>
-      <div class = "inputpwd">
-        <input type="text" id = "inputpwd" name="inputpwd" placeholder="Enter Password..." required/><br>
-      </div>
-      <div class = "buttonHolder">
-        <input type="submit" id = "submit" value="Generate New Password">
-      </div>
-      </form>
-      <div class = "newpwdlist">
-        <ul>
-          <li>new password 1</li>
-        </ul>
-      </div>
+        <div class = "col-lg-2"></div>
+        <div class = "col-lg-8">
+            <form>
+              <p class = "lead"> This website will generate a new, safer password for you.  Below, insert a passwod that needs to be more secure.  Don't worry — we use hashing so we don't know what you typed! After you press 'Generate New Password', you should see a safer password appear below.</p>
+              <div class = "inputpwd">
+                <input type="text" id = "inputpwd" name="inputpwd" placeholder="Enter Password..." required/><br>
+              </div>
+              <input type="button" class = "btn" value="Generate New Password">
+            </form>
+
+          <div id = "newpwdlist">
+              <ul>
+                <li>new password test here</li>
+              </ul>
+              <input type="button" class = "btn" value="Call me on my phone">
+          </div>
+        </div>
+      <div class = "col-sm-2"></div>
     </div>
   </body>
 </html>
