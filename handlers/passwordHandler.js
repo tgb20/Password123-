@@ -9,25 +9,22 @@ module.exports = {
 
         let passwordObj = JSON.parse('{"hash": "' + hash + '"}');
 
-        HashedPassword.create(passwordObj, (err, password) => {
-            if (err) {
-                console.log(password);
-                console.log('MONGO: Error adding password', err);
-                res.json({ success: false, error: err });
+        HashedPassword.find({ hash: hash }, ((err, passwords) => {
+            if (passwords.length > 0) {
+                res.json({ success: false, hash: password.hash, error: "Password not unique" });
             } else {
-                console.log(password);
-                HashedPassword.find({ hash: hash }, ((err, passwords) => {
-
-                    let unique = false;
-
-                    if (passwords.length > 0) {
-                        res.json({ success: false, hash: password.hash, error: "Password not unique"});
+                HashedPassword.create(passwordObj, (err, password) => {
+                    if (err) {
+                        console.log(password);
+                        console.log('MONGO: Error adding password', err);
+                        res.json({ success: false, error: err });
                     } else {
+                        console.log(password);
                         res.json({ success: true, hash: password.hash });
                     }
-                }));
+                });
             }
-        });
+        }));
     }),
 
     checkMatchingPassword: ((req, res) => {
