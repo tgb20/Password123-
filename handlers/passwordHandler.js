@@ -16,7 +16,7 @@ module.exports = {
                 res.json({ success: false, error: err });
             } else {
                 console.log(password);
-                res.json({ success: true,  hash: password});
+                res.json({ success: true,  hash: password.hash});
             }
         });
     }),
