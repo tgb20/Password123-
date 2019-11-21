@@ -11,7 +11,7 @@ module.exports = {
 
         HashedPassword.find({ hash: hash }, ((err, passwords) => {
             if (passwords.length > 0) {
-                res.json({ success: false, hash: password.hash, error: "Password not unique" });
+                res.json({ success: false, hash: hash, error: "Password not unique" });
             } else {
                 HashedPassword.create(passwordObj, (err, password) => {
                     if (err) {
