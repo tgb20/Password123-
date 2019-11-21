@@ -21,7 +21,7 @@ module.exports = {
                     let unique = false;
 
                     if (passwords.length > 0) {
-                        es.json({ success: false, hash: password.hash, error: "Password not unique"});
+                        res.json({ success: false, hash: password.hash, error: "Password not unique"});
                     } else {
                         res.json({ success: true, hash: password.hash });
                     }
