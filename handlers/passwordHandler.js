@@ -22,7 +22,7 @@ module.exports = {
     }),
 
     checkMatchingPassword: ((req, res) => {
-        let hash = req.query.hash;
+        let hash = req.body.hash;
 
         if(hash == null) {
             res.json({error: "No hash provided"});
