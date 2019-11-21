@@ -3,7 +3,7 @@ const HashedPassword = require('../models/passwordModel');
 module.exports = {
     addPassword: ((req, res) => {
 
-        let hash = req.query.hash;
+        let hash = req.body.hash;
 
         console.log(req.body);
 
