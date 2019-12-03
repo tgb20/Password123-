@@ -14,7 +14,7 @@
   </head>
   <body>
     <header>
-      Password123!
+      <div>Password123!</div>
     </header>
       <div class = "container-fluid">
       <div class = "title">
@@ -36,7 +36,39 @@
               <ul>
                 <li>new password test here</li>
               </ul>
-              <input type="button" class = "btn" value="Call me on my phone">
+              <!-- <input type="button" class = "btn" value="Call me on my phone">
+             -->
+             <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Call me on my phone
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      <h3 class="modal-title" id="exampleModalLabel">Call me on my phone</h3><br>
+                    </div>
+
+                    <div class="modal-body">
+                      <label for="phone">Enter your phone number:</label><br>
+                        <input type="tel" id="phone" name="phone"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                        required><br>
+                        <p><strong>Format: </strong>123-456-7890</p><br>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
       <div class = "col-sm-2"></div>
