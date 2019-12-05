@@ -7,6 +7,7 @@ let dx; // Value for incrementing x
 let yvalues; // Using an array to store height values for the wave
 let windowHeight = 200; //sets height of sine wave to 200px
 
+
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
   w = width + 20;
@@ -38,7 +39,7 @@ function calcWave() {
   // For every x value, calculate a y value with sine function
   let x = theta;
   for (let i = 0; i < yvalues.length; i++) {
-    yvalues[i] = sin(x)/3 * amplitude;
+    yvalues[i] = (sin(x))/3 * amplitude;
     x += dx;
   }
 }
