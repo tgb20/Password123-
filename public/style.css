@@ -61,24 +61,21 @@ input, label {
 }
 .btn.btn-primary{
   background-color: #280680;
+  outline: none;
 }
 .btn.btn-primary:hover{
   border: 2px solid black;
   background-color: #280680;
+  outline: none;
 }
-.btn.btn-primary:focus{
-  border: 2px solid black;
-  background-color: #280680;
-}
-.btn.btn-primary:active{
-  border: 2px solid black;
-  background-color: #280680;
-}
-.btn.btn-primary:hover:focus:active{
+.btn.btn-primary:focus, .btn.btn-primary:hover:focus:active, .btn.btn-primary:active{
   border: 2px solid black;
   background-color: #280680;
 }
 
+#newPwdBtn{
+  outline: none;
+}
 #sketchHolder{
   left: -30px !important;
   margin: -30px !important;
