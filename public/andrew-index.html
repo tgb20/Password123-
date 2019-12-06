@@ -9,19 +9,19 @@
     <script type ="text/javascript" src="libs/p5/p5.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
     <script src="subpublic/chance.min.js"></script>
-    <script src="subpublic/sha256.min.js"></script>
+    <script src="subpublic/md5.min.js"></script>
     <script src="subpublic/pwdGenerator.js"></script>
     <script>
-        function getNewPassword(e) {
-            e.preventDefault();
+        function getNewPassword() {
             let keyWord = document.getElementById('inputpwd').value
             let password = getSecurePassword(keyWord);
             console.log(password)
-            document.getElementById('newpwdlist').getElementsByTagName("p")[0].innerHTML = password;
+            document.getElementById('newpwdlist').getElementsByTagName("li")[0].innerHTML = password;
         }
     </script>
-
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,14 +45,15 @@
             <form>
               <p class = "lead"> This website will generate a new, safer password for you.  Below, insert a passwod that needs to be more secure.  Don't worry — we use hashing so we don't know what you typed! After you press 'Generate New Password', you should see a safer password appear below.</p>
               <div class = "inputpwd">
-                <input type="text" id = "inputpwd" name="inputpwd" placeholder="Enter Password..." required/><br>
+                <input type="text" id="inputpwd" name="inputpwd" placeholder="Enter Password..." required/><br>
               </div>
-              <input type="submit" id = "newPwd" onclick="getNewPassword(event)" class = "btn" value="Generate New Password">
+              <input type="button" onclick="getNewPassword()" class="btn" value="Generate New Password">
             </form>
 
-          <div id = "newpwdlist">
-            <!-- new password goes here -->
-              <p></p>
+          <div id="newpwdlist">
+              <ul>
+                <li></li>
+              </ul>
               <!-- <input type="button" class = "btn" value="Call me on my phone">
              -->
              <!-- Button trigger modal -->
