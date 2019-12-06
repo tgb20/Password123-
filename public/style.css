@@ -118,7 +118,7 @@ input[type=button], #newPwd{
   outline: none;
   background-color: none;
 }
-input[type=button]:hover{
+input[type=button]:hover, #newPwd:hover{
   border: 3px solid black;
   box-sizing: border-box;
 }
