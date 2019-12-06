@@ -17,7 +17,6 @@
             e.preventDefault();
             let keyWord = document.getElementById('inputpwd').value
             let password = getSecurePassword(keyWord);
-            console.log(password)
             document.getElementById('newpwdlist').getElementsByTagName("p")[0].innerHTML = password;
         }
     </script>
