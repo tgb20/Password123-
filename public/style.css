@@ -40,7 +40,7 @@ body{
   font-size: 40px;
   color: black;
 }
-ul{
+p{
   font-size: 26px;
   list-style-type: none;
   font-weight: bolder;
@@ -102,7 +102,7 @@ input[type=text], select{
 input[type=text]:focus{
   border: 3px solid black;
 }
-input[type=button]{
+input[type=button], #newPwd{
   border: 2px solid black;
   align-content: center;
   width: 33%;

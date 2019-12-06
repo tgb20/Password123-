@@ -13,11 +13,12 @@
     <script src="subpublic/md5.min.js"></script>
     <script src="subpublic/pwdGenerator.js"></script>
     <script>
-        function getNewPassword() {
+        function getNewPassword(e) {
+            e.preventDefault();
             let keyWord = document.getElementById('inputpwd').value
             let password = getSecurePassword(keyWord);
             console.log(password)
-            document.getElementById('newpwdlist').getElementsByTagName("li")[0].innerHTML = password;
+            document.getElementById('newpwdlist').getElementsByTagName("p")[0].innerHTML = password;
         }
     </script>
 
@@ -46,14 +47,12 @@
               <div class = "inputpwd">
                 <input type="text" id = "inputpwd" name="inputpwd" placeholder="Enter Password..." required/><br>
               </div>
-              <input type="button" onclick="getNewPassword()" class = "btn" value="Generate New Password">
+              <input type="submit" id = "newPwd" onclick="getNewPassword(event)" class = "btn" value="Generate New Password">
             </form>
 
           <div id = "newpwdlist">
             <!-- new password goes here -->
-              <ul>
-                <li></li>
-              </ul>
+              <p></p>
               <!-- <input type="button" class = "btn" value="Call me on my phone">
              -->
              <!-- Button trigger modal -->
