@@ -96,6 +96,7 @@ app.post('/api/voice.xml', (req, res) => {
         'loop': '2'
     },'Hello! Your password is ');
     say.sayAs({
+        'speed': 'slow',
         'interpret-as': 'spell-out'
     }, password);
     res.writeHead(200, { 'Content-Type': 'text/xml' });
