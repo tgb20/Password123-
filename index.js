@@ -59,7 +59,7 @@ app.get('/api/makecall', (req, res) => {
     res.sendStatus(200);
 });
 
-app.get('/api/voice.xml', (req, res) => {
+app.post('/api/voice.xml', (req, res) => {
 
     let password = req.query.password;
 
