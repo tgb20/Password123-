@@ -28,7 +28,7 @@ async function generateSecurePassword(text) {
                 text = random1 + random2 + text;
             }
 
-            let chars = "23456789!@#$%^&*~";
+            let chars = "23456789!@#$%^*";
             // Randomly capitalize characters of text.
             for (let i = 0; i < 2; i++) {
                 let idx = Math.floor(Math.random() * text.length);

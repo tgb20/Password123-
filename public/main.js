@@ -9,7 +9,13 @@ let windowHeight = 200; //sets height of sine wave to 200px
 
 $('document').ready(() => {
   $("#callButton").hide();
-  $("#emailButton").hide();
+  $("#printButton").hide();
+
+
+  $('#printButton').click(() => {
+    window.print();
+  });
+
 });
 
 function getNewPassword(e) {
@@ -18,7 +24,7 @@ function getNewPassword(e) {
   getSecurePassword(keyWord).then(password => {
     document.getElementById('newpwdlist').getElementsByTagName("p")[0].innerHTML = password;
     $("#callButton").show();
-    $("#emailButton").show();
+    $("#printButton").show();
   });
 }
 
