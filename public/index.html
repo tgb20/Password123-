@@ -1,37 +1,96 @@
 <!DOCTYPE html>
-<html></<!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Password123!</title>
-    <link rel="stylesheet" href="style.css">
-    <script type = "text/javascript" src="main.js"></script>
-    <script type ="text/javascript" src="libs/p5/p5.min.js"></script>
-  </head>
-  <body>
-    <header>
-      Insert text here
-    </header>
-    <div id = "content">
-    <form>
-      <div class = "title">
-        <h1>New Password Generator</h1>
-      </div>
-      <div>
-        <p class = "info"> Welcome to Password 123!  This is a web app that allows you to generate a new, safer password from an existing password.  In the input section, insert your current passwod (don't worry, we can't see it) and we will return a more complex password. </p>
-      </div>
-      <div class = "inputpwd">
-        <input type="text" id = "inputpwd" name="inputpwd" placeholder="Enter Password..." required/><br>
-      </div>
-      <div class = "buttonHolder">
-        <input type="submit" id = "submit" value="Generate New Password">
-      </div>
-      </form>
-      <div class = "newpwdlist">
-        <ul>
-          <li>new password 1</li>
-        </ul>
-      </div>
+
+<head>
+  <meta charset="utf-8">
+  <title>Password123!</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="subpublic/sha256.min.js"></script>
+  <script src="subpublic/pwdGenerator.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="libs/p5/p5.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+  <header>
+    <div>Password123!</div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="title">
+      <h1>New Password Generator</h1>
     </div>
-  </body>
+
+    <div>
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+
+        <form>
+          <p class="lead"> This website will generate a new, safer password for you. Below, insert a passwod that needs
+            to be more secure. Don't worry — we don't know, or save, what you typed! After you press 'Generate New
+            Password', you should see a safer password appear below. The password will never contain a zero or a one.
+          </p>
+          <div class="inputpwd">
+            <input type="text" id="inputpwd" name="inputpwd" placeholder="Enter Password..." required /><br>
+          </div>
+          <input type="submit" id="newPwd" onclick="getNewPassword(event)" class="btn" value="Generate New Password">
+        </form>
+
+        <div id="newpwdlist">
+          <!-- new password goes here -->
+          <p id="newPwdName"></p>
+          <!-- <input type="button" class = "btn" value="Call me on my phone">
+             -->
+          <!-- Button trigger modal -->
+          <button id="emailButton" type="button" class="btn btn-primary">
+            Print
+          </button>
+          <button id="callButton" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Call Me
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+
+              <div class="modal-content">
+
+                <div class="modal-header">
+                  <button type="button" class="close" id="cross" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h3 class="modal-title" id="exampleModalLabel">Call me at this number</h3>
+                </div>
+
+                <div class="modal-body">
+                  <label for="phone">Enter your phone number:</label><br>
+                  <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br>
+                  <p><strong>Format: </strong>123-456-7890</p><br>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Call Me Now</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2"></div>
+    </div>
+
+    <div id="sketchHolder"></div>
+  </div>
+
+  <footer></footer>
+</body>
+
 </html>

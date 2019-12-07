@@ -18,6 +18,26 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
+app.get('/libs/p5/p5.min.js', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/libs/p5/p5.min.js'));
+});
+
+app.get('/subpublic/sha256.min.js', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/subpublic/sha256.min.js'));
+});
+
+app.get('/main.js', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/main.js'));
+});
+
+app.get('/subpublic/pwdGenerator.js', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/subpublic/pwdGenerator.js'));
+});
+
+app.get('/style.css', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/style.css'));
+});
+
 app.post('/api/addPassword', passwordHandler.addPassword);
 app.get('/api/checkMatchingPassword', passwordHandler.checkMatchingPassword);
 app.get('/api/getRandomWords', wordHandler.getRandomWords);
