@@ -9,20 +9,8 @@
     <script type ="text/javascript" src="libs/p5/p5.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="subpublic/chance.min.js"></script>
     <script src="subpublic/sha256.min.js"></script>
     <script src="subpublic/pwdGenerator.js"></script>
-    <script>
-        function getNewPassword(e) {
-            e.preventDefault();
-            let keyWord = document.getElementById('inputpwd').value
-            let password = getSecurePassword(keyWord);
-            document.getElementById('newpwdlist').getElementsByTagName("p")[0].innerHTML = password;
-        }
-    </script>
-
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
@@ -42,7 +30,7 @@
         <div class = "col-lg-8">
 
             <form>
-              <p class = "lead"> This website will generate a new, safer password for you.  Below, insert a passwod that needs to be more secure.  Don't worry — we use hashing so we don't know what you typed! After you press 'Generate New Password', you should see a safer password appear below.</p>
+              <p class = "lead"> This website will generate a new, safer password for you.  Below, insert a passwod that needs to be more secure.  Don't worry — we don't know, or save, what you typed! After you press 'Generate New Password', you should see a safer password appear below. The password will never contain a zero or a one.</p>
               <div class = "inputpwd">
                 <input type="text" id = "inputpwd" name="inputpwd" placeholder="Enter Password..." required/><br>
               </div>

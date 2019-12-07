@@ -7,6 +7,13 @@ let dx; // Value for incrementing x
 let yvalues; // Using an array to store height values for the wave
 let windowHeight = 200; //sets height of sine wave to 200px
 
+function getNewPassword(e) {
+  e.preventDefault();
+  let keyWord = document.getElementById('inputpwd').value
+  getSecurePassword(keyWord).then(password => {
+    document.getElementById('newpwdlist').getElementsByTagName("p")[0].innerHTML = password;
+  });
+}
 
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);

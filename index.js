@@ -26,10 +26,6 @@ app.get('/subpublic/sha256.min.js', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/subpublic/sha256.min.js'));
 });
 
-app.get('/subpublic/chance.min.js', (req, res) => {
-    res.sendFile(path.join(__dirname + '/public/subpublic/chance.min.js'));
-});
-
 app.get('/main.js', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/main.js'));
 });
