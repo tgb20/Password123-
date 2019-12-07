@@ -48,6 +48,8 @@ app.get('/api/makecall', (req, res) => {
 
     let password = req.query.password;
 
+    password = escape(password);
+
     client.calls
         .create({
             url: 'https://password123cs326.herokuapp.com/api/voice.xml?password=' + password,
@@ -66,9 +68,7 @@ app.post('/api/voice.xml', (req, res) => {
     let readableString = "";
 
     password.split("").forEach(char => {
-    
-        '!@#$%^*'
-    
+
         if(char == char.toUpperCase() && !'23456789!@#$%^*'.includes(char)) {
           readableString += 'capital ' + char + ' ';
         } else if (char == ' ') {
@@ -91,7 +91,7 @@ app.post('/api/voice.xml', (req, res) => {
       });
 
     const twiml = new VoiceResponse();
-    twiml.say('Hello this is Password123! We are calling to read your password to you. Your password is ' + readableString);
+    twiml.say({loop: 2},'Hello this is Password123! We are calling to read your password to you. Your password is ' + readableString);
     res.writeHead(200, { 'Content-Type': 'text/xml' });
     res.end(twiml.toString());
 });

@@ -19,9 +19,7 @@ $('document').ready(() => {
 
 function placeCall() {
   let password = document.getElementById('newpwdlist').getElementsByTagName("p")[0].innerHTML;
-
-  let readableString = "";
-  console.log(readableString);
+  console.log(escape(password));
 }
 
 
