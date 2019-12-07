@@ -8,6 +8,12 @@ const app = express();
 const path = require('path');
 const PORT = process.env.PORT || 3000;
 
+const accountSid = 'AC95bfe27a0ac8428f8eb4332059043810';
+const authToken = process.env.TWILAUTH;
+const client = require('twilio')(accountSid, authToken);
+
+const VoiceResponse = require('twilio').twiml.VoiceResponse;
+
 mongoose.connect('mongodb+srv://public:KZq4PKjfQDE1nKEc@password123-ehxc4.gcp.mongodb.net/test?retryWrites=true&w=majority')
 
 app.use(cors());
@@ -36,6 +42,31 @@ app.get('/subpublic/pwdGenerator.js', (req, res) => {
 
 app.get('/style.css', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/style.css'));
+});
+
+app.get('/api/makecall', (req, res) => {
+
+    let password = req.query.password;
+
+    client.calls
+        .create({
+            url: 'https://password123cs326.herokuapp.com/api/voice.xml?password=' + password,
+            to: '+19193604710',
+            from: '+14133073766'
+        })
+        .then(call => console.log(call.sid));
+
+    res.sendStatus(200);
+});
+
+app.get('/api/voice.xml', (req, res) => {
+
+    let password = req.query.password;
+
+    const twiml = new VoiceResponse();
+    twiml.say('Hello this is Password123! We are calling to read your password to you. Your password is ' + password);
+    res.writeHead(200, { 'Content-Type': 'text/xml' });
+    res.end(twiml.toString());
 });
 
 app.post('/api/addPassword', passwordHandler.addPassword);
