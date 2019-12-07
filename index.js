@@ -91,11 +91,12 @@ app.post('/api/voice.xml', (req, res) => {
     //   });
 
     let twiml = new VoiceResponse();
-    let say = twiml.say('Hello this is Password123! We are calling to read your password to you. Your password is ');
-    say.sayAs({
-        'interpret-as': 'spell-out',
+    let say = twiml.say({
         'speed': 'slow',
         'loop': '2'
+    },'Hello! Your password is ');
+    say.sayAs({
+        'interpret-as': 'spell-out'
     }, password);
     res.writeHead(200, { 'Content-Type': 'text/xml' });
     res.end(twiml.toString());
