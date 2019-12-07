@@ -20,7 +20,7 @@ async function generateSecurePassword(text) {
 
             let v = Math.floor(Math.random() * 3);
 
-            if(v == 0) {
+            if (v == 0) {
                 text = text + random1 + random2;
             } else if (v == 1) {
                 text = random1 + text + random2;
