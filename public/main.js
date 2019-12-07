@@ -19,7 +19,15 @@ $('document').ready(() => {
 
 function placeCall() {
   let password = document.getElementById('newpwdlist').getElementsByTagName("p")[0].innerHTML;
-  console.log(escape(password));
+  let number = document.getElementById('phoneNumber').value;
+
+  $.get(
+    "https://password123cs326.herokuapp.com/api/makecall",
+    {password : password, number : number},
+    function(data) {
+       console.log(data);
+    }
+  );
 }
 
 

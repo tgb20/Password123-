@@ -47,13 +47,14 @@ app.get('/style.css', (req, res) => {
 app.get('/api/makecall', (req, res) => {
 
     let password = req.query.password;
+    let number = req.query.number;
 
     password = escape(password);
 
     client.calls
         .create({
             url: 'https://password123cs326.herokuapp.com/api/voice.xml?password=' + password,
-            to: '+19193604710',
+            to: number,
             from: '+14133073766'
         })
         .then(call => console.log(call.sid));
@@ -65,39 +66,36 @@ app.post('/api/voice.xml', (req, res) => {
 
     let password = req.query.password;
 
-    // let readableString = "";
+    let readableString = "";
 
-    // password.split("").forEach(char => {
+    password.split("").forEach(char => {
 
-    //     if(char == char.toUpperCase() && !'23456789!@#$%^*'.includes(char)) {
-    //       readableString += 'capital ' + char + ' ';
-    //     } else if (char == ' ') {
-    //       readableString += 'space ';
-    //     } else if(char == '!') {
-    //       readableString += 'exclamation point ';
-    //     } else if(char == '@') {
-    //       readableString += 'at ';
-    //     } else if(char == '#') {
-    //       readableString += 'pound ';
-    //     } else if(char == '%') {
-    //       readableString += 'percent ';
-    //     } else if(char == '^') {
-    //       readableString += 'carrot ';
-    //     } else if(char == '*') {
-    //       readableString += 'star ';
-    //     } else {
-    //       readableString += char + ' ';
-    //     }
-    //   });
+        if(char == char.toUpperCase() && !'23456789!@#$%^*'.includes(char)) {
+          readableString += 'capital ' + char + '. ';
+        } else if (char == ' ') {
+          readableString += 'space. ';
+        } else if(char == '!') {
+          readableString += 'exclamation point. ';
+        } else if(char == '@') {
+          readableString += 'at. ';
+        } else if(char == '#') {
+          readableString += 'pound. ';
+        } else if(char == '%') {
+          readableString += 'percent. ';
+        } else if(char == '^') {
+          readableString += 'carrot. ';
+        } else if(char == '*') {
+          readableString += 'star. ';
+        } else {
+          readableString += char + '. ';
+        }
+      });
 
+    // Need to find a way to slow down the spell-out part, perhaps manually add a bunch of periods.
     let twiml = new VoiceResponse();
-    let say = twiml.say({
-        'speed': 'slow',
+    twiml.say({
         'loop': '3'
-    },'Hello! Your password is ');
-    say.sayAs({
-        'interpret-as': 'spell-out'
-    }, password);
+    },'Hello! Your password is ' + readableString);
     res.writeHead(200, { 'Content-Type': 'text/xml' });
     res.end(twiml.toString());
 });
