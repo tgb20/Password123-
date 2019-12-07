@@ -21,31 +21,6 @@ function placeCall() {
   let password = document.getElementById('newpwdlist').getElementsByTagName("p")[0].innerHTML;
 
   let readableString = "";
-
-  password.split("").forEach(char => {
-    
-    '!@#$%^*'
-
-    if(char == char.toUpperCase() && !'23456789!@#$%^*'.includes(char)) {
-      readableString += 'capital ' + char + ' ';
-    } else if (char == ' ') {
-      readableString += 'space ';
-    } else if(char == '!') {
-      readableString += 'exclamation point ';
-    } else if(char == '@') {
-      readableString += 'at ';
-    } else if(char == '#') {
-      readableString += 'pound ';
-    } else if(char == '%') {
-      readableString += 'percent ';
-    } else if(char == '^') {
-      readableString += 'carrot ';
-    } else if(char == '*') {
-      readableString += 'star ';
-    } else {
-      readableString += char + ' ';
-    }
-  });
   console.log(readableString);
 }
 

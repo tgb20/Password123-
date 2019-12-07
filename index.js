@@ -59,12 +59,39 @@ app.get('/api/makecall', (req, res) => {
     res.sendStatus(200);
 });
 
-app.get('/api/voice.xml', (req, res) => {
+app.post('/api/voice.xml', (req, res) => {
 
     let password = req.query.password;
 
+    let readableString = "";
+
+    password.split("").forEach(char => {
+    
+        '!@#$%^*'
+    
+        if(char == char.toUpperCase() && !'23456789!@#$%^*'.includes(char)) {
+          readableString += 'capital ' + char + ' ';
+        } else if (char == ' ') {
+          readableString += 'space ';
+        } else if(char == '!') {
+          readableString += 'exclamation point ';
+        } else if(char == '@') {
+          readableString += 'at ';
+        } else if(char == '#') {
+          readableString += 'pound ';
+        } else if(char == '%') {
+          readableString += 'percent ';
+        } else if(char == '^') {
+          readableString += 'carrot ';
+        } else if(char == '*') {
+          readableString += 'star ';
+        } else {
+          readableString += char + ' ';
+        }
+      });
+
     const twiml = new VoiceResponse();
-    twiml.say('Hello this is Password123! We are calling to read your password to you. Your password is ' + password);
+    twiml.say('Hello this is Password123! We are calling to read your password to you. Your password is ' + readableString);
     res.writeHead(200, { 'Content-Type': 'text/xml' });
     res.end(twiml.toString());
 });
