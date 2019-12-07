@@ -92,7 +92,7 @@ app.post('/api/voice.xml', (req, res) => {
 
     const twiml = new VoiceResponse();
     twiml.say('Hello this is Password123! We are calling to read your password to you. Your password is ');
-    twil.ssmlSayAs({
+    twiml.ssmlSayAs({
         'interpret-as': 'spell-out'
     }, password);
     res.writeHead(200, { 'Content-Type': 'text/xml' });
