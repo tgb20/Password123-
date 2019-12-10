@@ -8,6 +8,16 @@
   font-weight: bold;
   position: fixed;
 }
+
+.hidden {
+  display: none;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
 footer{
   bottom: 0;
 }

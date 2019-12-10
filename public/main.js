@@ -7,7 +7,84 @@ let dx; // Value for incrementing x
 let yvalues; // Using an array to store height values for the wave
 let windowHeight = 200; //sets height of sine wave to 200px
 
+let auth0 = null;
+
+const fetchAuthConfig = () => fetch('/auth_config.json');
+
+const configureClient = async () => {
+  const response = await fetchAuthConfig();
+  const config = await response.json();
+
+  auth0 = await createAuth0Client({
+    domain: config.domain,
+    client_id: config.client_id
+  });
+}
+
+window.onload = async () => {
+
+  document.getElementById('greeting').hidden = true;
+
+  await configureClient();
+
+  updateUI();
+
+  const isAuthenticated = await auth0.isAuthenticated();
+
+  if(isAuthenticated) {
+
+    let user = await auth0.getUser();
+
+    let name = user.name;
+
+    document.getElementById('greeting').innerHTML = 'Hello, ' + name;
+    document.getElementById('greeting').hidden = false; 
+
+    return
+  }
+
+  const query = window.location.search
+  if(query.includes('code=') && query.includes('state=')) {
+    await auth0.handleRedirectCallback();
+
+    updateUI();
+
+    window.history.replaceState({}, document.title, '/');
+  }
+
+}
+
+const logout = async () => {
+  auth0.logout({
+    returnTo: window.location.origin
+  });
+}
+
+const login = async () => {
+  await auth0.loginWithRedirect({
+    redirect_uri: window.location.origin
+  });
+}
+
+const updateUI = async () => {
+  const isAuthenticated = await auth0.isAuthenticated();
+
+  document.getElementById('bt-login').disabled = isAuthenticated;
+  document.getElementById('bt-logout').disabled = !isAuthenticated;
+
+  if(isAuthenticated) {
+
+    let user = await auth0.getUser();
+
+    let name = user.name;
+
+    document.getElementById('greeting').innerHTML = 'Hello, ' + name;
+    document.getElementById('greeting').hidden = false; 
+  }
+}
+
 $('document').ready(() => {
+  
   $("#callButton").hide();
   $("#printButton").hide();
 

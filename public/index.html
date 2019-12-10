@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.2/auth0-spa-js.production.js"></script>
   <script src="subpublic/sha256.min.js"></script>
   <script src="subpublic/pwdGenerator.js"></script>
   <script type="text/javascript" src="main.js"></script>
@@ -24,6 +25,9 @@
   <div class="container-fluid">
     <div class="title">
       <h1>New Password Generator</h1>
+      <h3 id='greeting'>Hello, Jacob Bashista</h2>
+      <button id="bt-login" disabled = "true" onclick="login()">Log In</button>
+      <button id="bt-logout" disabled = "true" onclick="logout()">Log Out</button>
     </div>
 
     <div>
