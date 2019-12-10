@@ -21,87 +21,87 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/public/index.html'));
+  res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
 app.get('/libs/p5/p5.min.js', (req, res) => {
-    res.sendFile(path.join(__dirname + '/public/libs/p5/p5.min.js'));
+  res.sendFile(path.join(__dirname + '/public/libs/p5/p5.min.js'));
 });
 
 app.get('/subpublic/sha256.min.js', (req, res) => {
-    res.sendFile(path.join(__dirname + '/public/subpublic/sha256.min.js'));
+  res.sendFile(path.join(__dirname + '/public/subpublic/sha256.min.js'));
 });
 
 app.get('/main.js', (req, res) => {
-    res.sendFile(path.join(__dirname + '/public/main.js'));
+  res.sendFile(path.join(__dirname + '/public/main.js'));
 });
 
 app.get('/subpublic/pwdGenerator.js', (req, res) => {
-    res.sendFile(path.join(__dirname + '/public/subpublic/pwdGenerator.js'));
+  res.sendFile(path.join(__dirname + '/public/subpublic/pwdGenerator.js'));
 });
 
 app.get('/style.css', (req, res) => {
-    res.sendFile(path.join(__dirname + '/public/style.css'));
+  res.sendFile(path.join(__dirname + '/public/style.css'));
 });
 
 app.get('/auth_config.json', (req, res) => {
-    res.sendFile(path.join(__dirname + '/public/auth_config.json'));
+  res.sendFile(path.join(__dirname + '/public/auth_config.json'));
 });
 
 app.get('/api/makecall', (req, res) => {
 
-    let password = req.query.password;
-    let number = req.query.number;
+  let password = req.query.password;
+  let number = req.query.number;
 
-    password = escape(password);
+  password = escape(password);
 
-    client.calls
-        .create({
-            url: 'https://password123cs326.herokuapp.com/api/voice.xml?password=' + password,
-            to: number,
-            from: '+14133073766'
-        })
-        .then(call => console.log(call.sid));
+  client.calls
+    .create({
+      url: 'https://password123cs326.herokuapp.com/api/voice.xml?password=' + password,
+      to: number,
+      from: '+14133073766'
+    })
+    .then(call => console.log(call.sid));
 
-    res.sendStatus(200);
+  res.sendStatus(200);
 });
 
 app.post('/api/voice.xml', (req, res) => {
 
-    let password = req.query.password;
+  let password = req.query.password;
 
-    let readableString = "";
+  let readableString = "";
 
-    password.split("").forEach(char => {
+  password.split("").forEach(char => {
 
-        if(char == char.toUpperCase() && !'23456789!@#$%^*'.includes(char)) {
-          readableString += 'capital ' + char + '. ';
-        } else if (char == ' ') {
-          readableString += 'space. ';
-        } else if(char == '!') {
-          readableString += 'exclamation point. ';
-        } else if(char == '@') {
-          readableString += 'at. ';
-        } else if(char == '#') {
-          readableString += 'pound. ';
-        } else if(char == '%') {
-          readableString += 'percent. ';
-        } else if(char == '^') {
-          readableString += 'carrot. ';
-        } else if(char == '*') {
-          readableString += 'star. ';
-        } else {
-          readableString += char + '. ';
-        }
-      });
+    if (char == char.toUpperCase() && !'23456789!@#$%^*'.includes(char)) {
+      readableString += 'capital ' + char + '. ';
+    } else if (char == ' ') {
+      readableString += 'space. ';
+    } else if (char == '!') {
+      readableString += 'exclamation point. ';
+    } else if (char == '@') {
+      readableString += 'at. ';
+    } else if (char == '#') {
+      readableString += 'pound. ';
+    } else if (char == '%') {
+      readableString += 'percent. ';
+    } else if (char == '^') {
+      readableString += 'carrot. ';
+    } else if (char == '*') {
+      readableString += 'star. ';
+    } else {
+      readableString += char + '. ';
+    }
+  });
 
-    // Need to find a way to slow down the spell-out part, perhaps manually add a bunch of periods.
-    let twiml = new VoiceResponse();
-    twiml.say({
-        'loop': '3'
-    },'Hello! Your password is ' + readableString);
-    res.writeHead(200, { 'Content-Type': 'text/xml' });
-    res.end(twiml.toString());
+  // Need to find a way to slow down the spell-out part, perhaps manually add a bunch of periods.
+  let twiml = new VoiceResponse();
+  twiml.say({
+    'loop': '3'
+  }, 'Hello! Your password is ' + readableString);
+  res.writeHead(200, { 'Content-Type': 'text/xml' });
+  res.end(twiml.toString());
 });
 
 app.post('/api/addPassword', passwordHandler.addPassword);
@@ -109,5 +109,5 @@ app.get('/api/checkMatchingPassword', passwordHandler.checkMatchingPassword);
 app.get('/api/getRandomWords', wordHandler.getRandomWords);
 
 app.listen(PORT, () => {
-    console.log(`Running on port ${PORT}`);
+  console.log(`Running on port ${PORT}`);
 });
