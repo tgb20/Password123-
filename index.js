@@ -44,6 +44,10 @@ app.get('/style.css', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/style.css'));
 });
 
+app.get('/auth_config.json', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/auth_config.json'));
+});
+
 app.get('/api/makecall', (req, res) => {
 
     let password = req.query.password;
