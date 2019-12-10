@@ -31,20 +31,20 @@ window.onload = async () => {
 
   const isAuthenticated = await auth0.isAuthenticated();
 
-  if(isAuthenticated) {
+  if (isAuthenticated) {
 
     let user = await auth0.getUser();
 
     let name = user.name;
 
     document.getElementById('greeting').innerHTML = 'Hello, ' + name;
-    document.getElementById('greeting').hidden = false; 
+    document.getElementById('greeting').hidden = false;
 
     return
   }
 
   const query = window.location.search
-  if(query.includes('code=') && query.includes('state=')) {
+  if (query.includes('code=') && query.includes('state=')) {
     await auth0.handleRedirectCallback();
 
     updateUI();
@@ -72,19 +72,19 @@ const updateUI = async () => {
   document.getElementById('bt-login').disabled = isAuthenticated;
   document.getElementById('bt-logout').disabled = !isAuthenticated;
 
-  if(isAuthenticated) {
+  if (isAuthenticated) {
 
     let user = await auth0.getUser();
 
     let name = user.name;
 
     document.getElementById('greeting').innerHTML = 'Hello, ' + name;
-    document.getElementById('greeting').hidden = false; 
+    document.getElementById('greeting').hidden = false;
   }
 }
 
 $('document').ready(() => {
-  
+
   $("#callButton").hide();
   $("#printButton").hide();
 
@@ -95,14 +95,19 @@ $('document').ready(() => {
 });
 
 function placeCall() {
+
+  $('#phoneModal').modal('hide');
+
   let password = document.getElementById('newpwdlist').getElementsByTagName("p")[0].innerHTML;
   let number = document.getElementById('phoneNumber').value;
 
+  alert("Calling you at " + number);
+
   $.get(
     "https://password123cs326.herokuapp.com/api/makecall",
-    {password : password, number : number},
-    function(data) {
-       console.log(data);
+    { password: password, number: number },
+    function (data) {
+      console.log(data);
     }
   );
 }
